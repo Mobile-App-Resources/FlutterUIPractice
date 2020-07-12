@@ -19,7 +19,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                           image: NetworkImage(
-                              "https://scontent.fpnq2-1.fna.fbcdn.net/v/t31.0-8/21949782_1703850876354865_8746594292840452369_o.jpg?_nc_cat=109&_nc_sid=13bebb&_nc_ohc=iNQMHaSnzRIAX9GxmgN&_nc_ht=scontent.fpnq2-1.fna&oh=097c586899a011864fa690a6a8ca235d&oe=5F2F9C7E"),
+                              "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
                           fit: BoxFit.cover)),
                 ),
                 SizedBox(
@@ -59,6 +59,31 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
     );
   }
 
+  Widget getSearchCOntroller(){
+
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.grey[200],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.search),
+              SizedBox(width: 10,),
+              Text("Search"),
+            ],
+          ),
+        ),
+        height: 45,
+      ),
+    );
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,6 +92,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             getHeaderWidget(),
+            getSearchCOntroller(),
           ],
         ),
       ),
