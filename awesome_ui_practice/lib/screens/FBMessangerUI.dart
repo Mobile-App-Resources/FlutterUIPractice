@@ -12,16 +12,16 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               child: Container(
-                height: 50,
-                width: 50,
+                height: 40,
+                width: 40,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.grey[200],
                 ),
                 child: Icon(Icons.add),
               ),
-              height: 75,
-              width: 75,
+              height: 55,
+              width: 55,
             ),
             Text("Your Story "),
           ],
@@ -40,8 +40,8 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Container(
-                      height: 50,
-                      width: 50,
+                      height: 40,
+                      width: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -51,19 +51,19 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  height: 75,
-                  width: 75,
+                  height: 55,
+                  width: 55,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.blue, width: 3),
                   ),
                 ),
                 Positioned(
-                  top: 48,
-                  left: 52,
+                  top: 35,
+                  left: 40,
                   child: Container(
-                    width: 20,
-                    height: 20,
+                    width: 15,
+                    height: 15,
                     decoration: BoxDecoration(
                         color: Colors.green,
                         shape: BoxShape.circle,
@@ -131,7 +131,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         ),
       ),
       color: Colors.white,
-      height: 70,
+      height: 60,
     );
   }
 
