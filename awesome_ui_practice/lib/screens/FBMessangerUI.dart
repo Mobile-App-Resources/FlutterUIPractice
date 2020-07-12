@@ -2,10 +2,68 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FBMessangerUIHomeScreen extends StatelessWidget {
+
+
+  TextEditingController _searchController = new TextEditingController();
+
+
+  Widget getCreateYourStoryWidget() {
+    return Padding(
+        padding: const EdgeInsets.all(5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              child: Container(
+                height: 50, width: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey[200],
+                ),
+                child: Icon(Icons.add),
+              ),
+              height: 75, width: 75,
+            ),
+            Text("Your Story "),
+          ],
+        )
+    );
+  }
+  Widget getASignleStoryForData(){
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container(
+                height: 50, width: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
+                      fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            height: 75, width: 75,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.blue, width: 3),
+            ),
+          ),
+          Text("Deepika "),
+        ],
+      )
+    );
+  }
   Widget getHeaderWidget() {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -41,7 +99,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                   width: 40,
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Container(
                   child: Icon(Icons.edit),
@@ -49,7 +107,8 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                       shape: BoxShape.circle, color: Colors.grey[200]),
                   height: 40,
                   width: 40,
-                ),              ],
+                ),
+              ],
             )
           ],
         ),
@@ -58,9 +117,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
       height: 70,
     );
   }
-
-  Widget getSearchCOntroller(){
-
+  Widget getSearchController() {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -71,18 +128,53 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: <Widget>[
-              Icon(Icons.search),
-              SizedBox(width: 10,),
-              Text("Search"),
-            ],
-          ),
+           child: TextField(
+          cursorColor: Colors.black26,
+          controller: _searchController,
+          decoration: InputDecoration(
+              prefixIcon: Icon(
+                Icons.search,
+                color: Colors.black26,
+              ),
+              hintText: "Search",
+              border: InputBorder.none),
+        ),
         ),
         height: 45,
       ),
     );
-}
+  }
+
+
+  Widget getRecentStoriesScroll() {
+    return Container(
+      width: double.infinity,
+      height: 120,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  getCreateYourStoryWidget(),
+                  getASignleStoryForData(),
+                  getASignleStoryForData(),
+                  getASignleStoryForData(),
+                  getASignleStoryForData(),
+                  getASignleStoryForData(),
+
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +184,8 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             getHeaderWidget(),
-            getSearchCOntroller(),
+            getSearchController(),
+            getRecentStoriesScroll(),
           ],
         ),
       ),
