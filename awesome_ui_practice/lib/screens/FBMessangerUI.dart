@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../Constants/data.dart';
+// Need to change the conditional online/offline, has story etc
 
 class FBMessangerUIHomeScreen extends StatelessWidget {
   TextEditingController _searchController = new TextEditingController();
@@ -28,7 +30,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         ));
   }
 
-  Widget getASignleStoryForData() {
+  Widget getASignleStoryForData(Map userstory) {
     return Padding(
         padding: const EdgeInsets.all(5),
         child: Column(
@@ -46,7 +48,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                             image: NetworkImage(
-                                "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
+                                userstory['img'].toString()),
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -72,7 +74,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            Text("Deepika "),
+            Text(userstory['name'].toString()),
           ],
         ));
   }
@@ -175,14 +177,12 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   getCreateYourStoryWidget(),
-                  getASignleStoryForData(),
-                  getASignleStoryForData(),
-                  getASignleStoryForData(),
-                  getASignleStoryForData(),
-                  getASignleStoryForData(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: List.generate(userStories.length, (index) => getASignleStoryForData(userStories[index]))
+                  ),
                 ],
               ),
             ),
@@ -192,79 +192,96 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
     );
   }
 
-
   Widget getListOfChats() {
     return Column(
-      children: List.generate(10, (index) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Container(
-          height: 70,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              children: <Widget>[
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
-                            fit: BoxFit.cover),
+        children: List.generate(
+            userMessages.length,
+            (index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Container(
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: <Widget>[
+                          Stack(
+                            children: <Widget>[
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              userMessages[index]['img'].toString()),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
+                                ),
+                                height: 55,
+                                width: 55,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border:
+                                      Border.all(color: Colors.blue, width: 3),
+                                ),
+                              ),
+                              Positioned(
+                                top: 35,
+                                left: 40,
+                                child: Container(
+                                  width: 15,
+                                  height: 15,
+                                  decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.white, width: 3)),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                userMessages[index]['name'].toString(),
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Text(
+                                    userMessages[index]['message'].toString(),
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
+                                  Text(
+                                    userMessages[index]['created_at'].toString(),
+                                    style: TextStyle(
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
-                    Positioned(
-                      top: 35,
-                      left: 38,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 3)),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(width: 10,),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                 children: <Widget>[
-                   Text(
-                     "Profile Name",
-                     style: TextStyle(
-                       fontSize: 17,
-                       fontWeight: FontWeight.bold
-                     ),
-                   ),
-                   Row(
-                     children: <Widget>[
-                       Text("the Last message sent",
-                         style: TextStyle(
-                             fontSize: 15,
-                             fontWeight: FontWeight.normal
-                         ),
-                       ),
-                       SizedBox(width: 4,),
-                       Text(" 9m", style: TextStyle(
-                           fontSize: 11,
-                           fontWeight: FontWeight.normal
-                       ),),
-                     ],
-                   )
-                 ],
-                )
-              ],
-            ),
-          ),
-        ),
-      ))
-    );
+                  ),
+                )));
   }
 
   @override
