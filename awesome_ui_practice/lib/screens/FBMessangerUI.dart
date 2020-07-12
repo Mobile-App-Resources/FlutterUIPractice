@@ -38,7 +38,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                Container(
+                userstory['story'] ? Container(
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Container(
@@ -55,12 +55,29 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                   ),
                   height: 55,
                   width: 55,
-                  decoration: BoxDecoration(
+                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.blue, width: 3),
                   ),
+                ) : Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                userstory['img'].toString()),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                  height: 55,
+                  width: 55,
                 ),
-                Positioned(
+                userstory['online'] ? Positioned(
                   top: 35,
                   left: 40,
                   child: Container(
@@ -71,7 +88,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.white, width: 3)),
                   ),
-                )
+                ): SizedBox(height: 1,)
               ],
             ),
             Text(userstory['name'].toString()),
@@ -206,7 +223,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                         children: <Widget>[
                           Stack(
                             children: <Widget>[
-                              Container(
+                              userMessages[index]['story'] ?Container(
                                 child: Padding(
                                   padding: const EdgeInsets.all(2.0),
                                   child: Container(
@@ -228,8 +245,25 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                                   border:
                                       Border.all(color: Colors.blue, width: 3),
                                 ),
+                              ): Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              userMessages[index]['img'].toString()),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
+                                ),
+                                height: 55,
+                                width: 55,
                               ),
-                              Positioned(
+                              userMessages[index]['online']? Positioned(
                                 top: 35,
                                 left: 40,
                                 child: Container(
@@ -241,7 +275,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                                       border: Border.all(
                                           color: Colors.white, width: 3)),
                                 ),
-                              )
+                              ) : SizedBox(height: 1,)
                             ],
                           ),
                           SizedBox(
