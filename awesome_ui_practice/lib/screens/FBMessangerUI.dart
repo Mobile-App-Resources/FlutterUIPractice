@@ -192,17 +192,96 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
     );
   }
 
+
+  Widget getListOfChats() {
+    return Column(
+      children: List.generate(10, (index) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Container(
+          height: 70,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: <Widget>[
+                Stack(
+                  children: <Widget>[
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    Positioned(
+                      top: 35,
+                      left: 38,
+                      child: Container(
+                        width: 15,
+                        height: 15,
+                        decoration: BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 3)),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(width: 10,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                 children: <Widget>[
+                   Text(
+                     "Profile Name",
+                     style: TextStyle(
+                       fontSize: 17,
+                       fontWeight: FontWeight.bold
+                     ),
+                   ),
+                   Row(
+                     children: <Widget>[
+                       Text("the Last message sent",
+                         style: TextStyle(
+                             fontSize: 15,
+                             fontWeight: FontWeight.normal
+                         ),
+                       ),
+                       SizedBox(width: 4,),
+                       Text(" 9m", style: TextStyle(
+                           fontSize: 11,
+                           fontWeight: FontWeight.normal
+                       ),),
+                     ],
+                   )
+                 ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ))
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            getHeaderWidget(),
-            getSearchController(),
-            getRecentStoriesScroll(),
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              getHeaderWidget(),
+              getSearchController(),
+              getRecentStoriesScroll(),
+              getListOfChats(),
+            ],
+          ),
         ),
       ),
     );
