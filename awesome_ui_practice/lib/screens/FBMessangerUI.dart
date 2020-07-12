@@ -2,10 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FBMessangerUIHomeScreen extends StatelessWidget {
-
-
   TextEditingController _searchController = new TextEditingController();
-
 
   Widget getCreateYourStoryWidget() {
     return Padding(
@@ -15,51 +12,71 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               child: Container(
-                height: 50, width: 50,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.grey[200],
                 ),
                 child: Icon(Icons.add),
               ),
-              height: 75, width: 75,
+              height: 75,
+              width: 75,
             ),
             Text("Your Story "),
           ],
-        )
-    );
+        ));
   }
-  Widget getASignleStoryForData(){
+
+  Widget getASignleStoryForData() {
     return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Container(
-                height: 50, width: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
-                      fit: BoxFit.cover),
+        padding: const EdgeInsets.all(5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                  height: 75,
+                  width: 75,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.blue, width: 3),
+                  ),
                 ),
-              ),
+                Positioned(
+                  top: 48,
+                  left: 52,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3)),
+                  ),
+                )
+              ],
             ),
-            height: 75, width: 75,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.blue, width: 3),
-            ),
-          ),
-          Text("Deepika "),
-        ],
-      )
-    );
+            Text("Deepika "),
+          ],
+        ));
   }
+
   Widget getHeaderWidget() {
     return Container(
       child: Padding(
@@ -117,6 +134,7 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
       height: 70,
     );
   }
+
   Widget getSearchController() {
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -128,23 +146,22 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-           child: TextField(
-          cursorColor: Colors.black26,
-          controller: _searchController,
-          decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.black26,
-              ),
-              hintText: "Search",
-              border: InputBorder.none),
-        ),
+          child: TextField(
+            cursorColor: Colors.black26,
+            controller: _searchController,
+            decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.black26,
+                ),
+                hintText: "Search",
+                border: InputBorder.none),
+          ),
         ),
         height: 45,
       ),
     );
   }
-
 
   Widget getRecentStoriesScroll() {
     return Container(
@@ -166,7 +183,6 @@ class FBMessangerUIHomeScreen extends StatelessWidget {
                   getASignleStoryForData(),
                   getASignleStoryForData(),
                   getASignleStoryForData(),
-
                 ],
               ),
             ),
