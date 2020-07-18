@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/FBMessangerUI.dart';
+import 'screens/PostsHomeScreen.dart';
+
 
 void main() {
   runApp(HomePage());
@@ -11,7 +13,8 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
         home: Container(
       color: Colors.teal,
-      child: FBMessangerUIHomeScreen(),
+    child: HomeController(),
+//      child: FBMessangerUIHomeScreen(),
 //      child: Center(
 //        child: GridView.count(
 //            crossAxisSpacing: 5,
