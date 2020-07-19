@@ -19,6 +19,7 @@ class HomeController extends StatelessWidget {
       ),
     );
   }
+
   Widget getCreateYourStoryWidget() {
     return Padding(
         padding: const EdgeInsets.all(5),
@@ -34,9 +35,11 @@ class HomeController extends StatelessWidget {
                   color: Colors.grey[200],
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
-                    end: Alignment(1.8, 0.0), // 10% of the width, so there are ten blinds.
-                    colors: [Color_Grad1 , Color_Grad2], // whitish to gray
-                    tileMode: TileMode.repeated, // repeats the gradient over the canvas
+                    end: Alignment(
+                        1.8, 0.0), // 10% of the width, so there are ten blinds.
+                    colors: [Color_Grad1, Color_Grad2], // whitish to gray
+                    tileMode: TileMode
+                        .repeated, // repeats the gradient over the canvas
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -46,18 +49,20 @@ class HomeController extends StatelessWidget {
                       offset: Offset(2, 3), // changes position of shadow
                     ),
                   ],
-
                 ),
-                child: Icon(Icons.add, color:  Colors.white,),
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
               height: 55,
               width: 55,
             ),
-
             Text("Your Story "),
           ],
         ));
   }
+
   Widget getASignleStoryForData(Map userstory) {
     return Padding(
         padding: const EdgeInsets.all(5),
@@ -66,87 +71,98 @@ class HomeController extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                userstory['story'] ? Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                userstory['img'].toString()),
-                            fit: BoxFit.cover),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.7),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(2, 3), // changes position of shadow
+                userstory['story']
+                    ? Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image:
+                                      NetworkImage(userstory['img'].toString()),
+                                  fit: BoxFit.cover),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.7),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                      2, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  height: 55,
-                  width: 55,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Color_Header, width: 3),
-                  ),
-                ) : Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                userstory['img'].toString()),
-                            fit: BoxFit.cover),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.7),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(2, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  height: 55,
-                  width: 55,
-                ),
-                userstory['online'] ? Positioned(
-                  top: 35,
-                  left: 40,
-                  child: Container(
-                    width: 15,
-                    height: 15,
-                    decoration: BoxDecoration(
-                        color: Colors.green,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 3),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.7),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(2, 3), // changes position of shadow
                         ),
-                      ],),
-                  ),
-                ): SizedBox(height: 1,)
+                        height: 55,
+                        width: 55,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Color_Header, width: 3),
+                        ),
+                      )
+                    : Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image:
+                                      NetworkImage(userstory['img'].toString()),
+                                  fit: BoxFit.cover),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.7),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                      2, 3), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        height: 55,
+                        width: 55,
+                      ),
+                userstory['online']
+                    ? Positioned(
+                        top: 35,
+                        left: 40,
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 3),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.7),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(2, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        height: 1,
+                      )
               ],
             ),
             Text(userstory['name'].toString()),
           ],
         ));
   }
+
   Widget getRecentStoriesScroll() {
     return Container(
       width: double.infinity,
@@ -163,8 +179,10 @@ class HomeController extends StatelessWidget {
                   getCreateYourStoryWidget(),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: List.generate(userStories.length, (index) => getASignleStoryForData(userStories[index]))
-                  ),
+                      children: List.generate(
+                          userStories.length,
+                          (index) =>
+                              getASignleStoryForData(userStories[index]))),
                 ],
               ),
             ),
@@ -174,116 +192,141 @@ class HomeController extends StatelessWidget {
     );
   }
 
-
   Widget getListOfPosts() {
     return Column(
         children: List.generate(
-            userMessages.length,
-                (index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Container(
-                height: 80,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Stack(
-                        children: <Widget>[
-                          userMessages[index]['story'] ?Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                          userMessages[index]['img'].toString()),
-                                      fit: BoxFit.cover),
+            5,
+            (index) => Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Container(
+                    height: 420,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(1),
+                          spreadRadius: 5,
+                          blurRadius: 5,
+                          offset:
+                          Offset(3, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image:
+                                            NetworkImage('https://images.unsplash.com/photo-1536763843054-126cc2d9d3b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'),
+                                            fit: BoxFit.cover),
+                                      ),
+                                    ),
+                                  ),
+                                  height: 35,
+                                  width: 35,
                                 ),
-                              ),
+                                SizedBox(width:10),
+                                Text('Full Name', style: TextStyle(color: Colors.black),)
+                              ],
                             ),
-                            height: 55,
-                            width: 55,
+                            Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.share,
+                                    color: Colors.black,
+                                    size: 20,
+                                  ),
+                                  iconSize: 30,
+                                  onPressed: (){
+                                  },
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 300,
                             decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border:
-                              Border.all(color: Colors.blue, width: 3),
-                            ),
-                          ): Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                          userMessages[index]['img'].toString()),
-                                      fit: BoxFit.cover),
+                              color: Colors.purple,
+                              shape: BoxShape.rectangle,
+                              image: DecorationImage(image: NetworkImage('https://images4.alphacoders.com/565/thumb-1920-565042.jpg'), fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 5,
+                                  offset:
+                                  Offset(3, 3), // changes position of shadow
                                 ),
-                              ),
+                              ],
                             ),
-                            height: 55,
-                            width: 55,
                           ),
-                          userMessages[index]['online']? Positioned(
-                            top: 35,
-                            left: 40,
-                            child: Container(
-                              width: 15,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                      color: Colors.white, width: 3)),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.hearing,
+                                    color: Colors.black,
+                                    size: 20,
+                                  ),
+                                  onPressed: (){
+                                  },
+                                ),
+                                Text('143', style: TextStyle(color:  Colors.black),),
+                                SizedBox(width: 10,),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.mode_comment,
+                                    color: Colors.black,
+                                    size: 20,
+                                  ),
+                                  onPressed: (){
+                                  },
+                                ),
+                                Text('143', style: TextStyle(color:  Colors.black),),
+                              ],
                             ),
-                          ) : SizedBox(height: 1,)
-                        ],
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            userMessages[index]['name'].toString(),
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                userMessages[index]['message'].toString(),
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                userMessages[index]['created_at'].toString(),
-                                style: TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            )));
+                            Row(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.supervisor_account,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                  onPressed: (){
+                                  },
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                )));
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -303,11 +346,19 @@ class HomeController extends StatelessWidget {
               Icons.settings,
               color: Colors.white,
             ),
+            onPressed: (){
+
+            },
           )
         ],
       ),
 
-      body: getRecentStoriesScroll(),
+      body: SingleChildScrollView(child: Column(
+        children: <Widget>[
+          getRecentStoriesScroll(),
+          getListOfPosts(),
+        ],
+      )),
 //    body: Container(
 //      height: 80,
 //      child: Padding(
