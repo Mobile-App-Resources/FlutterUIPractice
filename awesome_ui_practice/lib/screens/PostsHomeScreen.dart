@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Themes/Colors.dart';
 import '../Constants/data.dart';
@@ -6,19 +7,25 @@ import 'package:line_icons/line_icons.dart';
 class HomeController extends StatelessWidget {
   Widget getHeaderAvatar() {
     return Padding(
-      padding: const EdgeInsets.all(7.0),
-      child: Container(
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.white, width: 1),
-            image: DecorationImage(
-                image: NetworkImage(
-                    "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
-                fit: BoxFit.cover)),
+      padding: const EdgeInsets.all(8.0),
+      child: CircleAvatar(
+        radius: 20,
+        backgroundImage: NetworkImage(
+            'https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg'),
+        backgroundColor: Colors.transparent,
       ),
     );
+//    return Container(
+//      width: 40,
+//      height: 40,
+//      decoration: BoxDecoration(
+//          shape: BoxShape.circle,
+//          border: Border.all(color: Colors.white, width: 1),
+//          image: DecorationImage(
+//              image: NetworkImage(
+//                  "https://i.pinimg.com/originals/30/28/4a/30284a7eafb27bb208e466738611c420.jpg"),
+//              )),
+//    );
   }
 
   Widget getCreateYourStoryWidget() {
@@ -196,117 +203,127 @@ class HomeController extends StatelessWidget {
   Widget getListOfPosts() {
     return Column(
         children: List.generate(
-            5,
+            posts.length,
             (index) => Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Container(
-                    height: 420,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.white.withOpacity(1),
-                          spreadRadius: 5,
-                          blurRadius: 5,
-                          offset:
-                          Offset(3, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image:
-                                            NetworkImage('https://images.unsplash.com/photo-1536763843054-126cc2d9d3b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'),
-                                            fit: BoxFit.cover),
-                                      ),
+                padding: const EdgeInsets.all(5),
+                child: Container(
+                  height: 420,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(1),
+                        spreadRadius: 5,
+                        blurRadius: 5,
+                        offset: Offset(3, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              posts[index]['avatar']),
+                                          fit: BoxFit.cover),
                                     ),
                                   ),
-                                  height: 35,
-                                  width: 35,
                                 ),
-                                SizedBox(width:10),
-                                Text('Full Name', style: TextStyle(color: Color_Header),)
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                IconButton(
-                                  icon: Icon(
-                                    LineIcons.share,
-                                    color: Color_Header,
-                                    size: 20,
-                                  ),
-                                  iconSize: 30,
-                                  onPressed: (){
-                                  },
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 300,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              image: DecorationImage(image: NetworkImage('https://images4.alphacoders.com/565/thumb-1920-565042.jpg'), fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 5,
-                                  offset:
-                                  Offset(3, 3), // changes position of shadow
+                                height: 35,
+                                width: 35,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                  posts[index]['name'],
+                                style: TextStyle(color: Color_Header),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                icon: Icon(
+                                  LineIcons.share,
+                                  color: Color_Header,
+                                  size: 20,
                                 ),
-                              ],
-                            ),
+                                iconSize: 30,
+                                onPressed: () {},
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 300,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                  posts[index]['post_media'],),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 5,
+                                offset:
+                                    Offset(3, 3), // changes position of shadow
+                              ),
+                            ],
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                IconButton(
-                                  icon: Icon(
-                                    LineIcons.heart_o,
-                                    color: Color_Header,
-                                    size: 20,
-                                  ),
-                                  onPressed: (){
-                                  },
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              IconButton(
+                                icon: Icon(
+                                  LineIcons.heart_o,
+                                  color: Color_Header,
+                                  size: 20,
                                 ),
-                                Text('143', style: TextStyle(color:  Color_Header),),
-                                SizedBox(width: 10,),
-                                IconButton(
-                                  icon: Icon(
-                                    LineIcons.comments,
-                                    color: Color_Header,
-                                    size: 20,
-                                  ),
-                                  onPressed: (){
-                                  },
+                                onPressed: () {},
+                              ),
+                              Text(
+                                '143',
+                                style: TextStyle(color: Color_Header),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  LineIcons.comments,
+                                  color: Color_Header,
+                                  size: 20,
                                 ),
-                                Text('143', style: TextStyle(color:  Color_Header),),
-                              ],
-                            ),
+                                onPressed: () {},
+                              ),
+                              Text(
+                                '143',
+                                style: TextStyle(color: Color_Header),
+                              ),
+                            ],
+                          ),
 //                            Row(
 //                              children: <Widget>[
 //                                IconButton(
@@ -320,12 +337,11 @@ class HomeController extends StatelessWidget {
 //                                )
 //                              ],
 //                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                )));
+                        ],
+                      ),
+                    ],
+                  ),
+                ))));
   }
 
   @override
@@ -339,21 +355,30 @@ class HomeController extends StatelessWidget {
         ),
         elevation: 0.0,
         backgroundColor: Colors.white,
-        leading: getHeaderAvatar(),
+        leading: Icon(
+          CupertinoIcons.photo_camera,
+          size: 30,
+          color: Colors.black,
+        ),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: (){
-
-            },
-          )
+          getHeaderAvatar(),
+          SizedBox(
+            width: 20,
+          ),
+//          IconButton(
+//            icon: Icon(
+//              Icons.settings,
+//              color: Colors.black,
+//            ),
+//            onPressed: (){
+//
+//            },
+//          )
         ],
       ),
 
-      body: SingleChildScrollView(child: Column(
+      body: SingleChildScrollView(
+          child: Column(
         children: <Widget>[
           getRecentStoriesScroll(),
           getListOfPosts(),
