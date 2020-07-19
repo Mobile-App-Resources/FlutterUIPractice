@@ -239,7 +239,7 @@ class HomeController extends StatelessWidget {
                                   width: 35,
                                 ),
                                 SizedBox(width:10),
-                                Text('Full Name', style: TextStyle(color: Colors.black),)
+                                Text('Full Name', style: TextStyle(color: Color_Header),)
                               ],
                             ),
                             Row(
@@ -247,7 +247,7 @@ class HomeController extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(
                                     Icons.share,
-                                    color: Colors.black,
+                                    color: Color_Header,
                                     size: 20,
                                   ),
                                   iconSize: 30,
@@ -263,7 +263,6 @@ class HomeController extends StatelessWidget {
                           child: Container(
                             height: 300,
                             decoration: BoxDecoration(
-                              color: Colors.purple,
                               shape: BoxShape.rectangle,
                               image: DecorationImage(image: NetworkImage('https://images4.alphacoders.com/565/thumb-1920-565042.jpg'), fit: BoxFit.cover),
                               borderRadius: BorderRadius.circular(20),
@@ -287,24 +286,24 @@ class HomeController extends StatelessWidget {
                                 IconButton(
                                   icon: Icon(
                                     Icons.hearing,
-                                    color: Colors.black,
+                                    color: Color_Header,
                                     size: 20,
                                   ),
                                   onPressed: (){
                                   },
                                 ),
-                                Text('143', style: TextStyle(color:  Colors.black),),
+                                Text('143', style: TextStyle(color:  Color_Header),),
                                 SizedBox(width: 10,),
                                 IconButton(
                                   icon: Icon(
                                     Icons.mode_comment,
-                                    color: Colors.black,
+                                    color: Color_Header,
                                     size: 20,
                                   ),
                                   onPressed: (){
                                   },
                                 ),
-                                Text('143', style: TextStyle(color:  Colors.black),),
+                                Text('143', style: TextStyle(color:  Color_Header),),
                               ],
                             ),
                             Row(
