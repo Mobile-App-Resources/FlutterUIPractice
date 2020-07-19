@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Themes/Colors.dart';
 import '../Constants/data.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomeController extends StatelessWidget {
   Widget getHeaderAvatar() {
@@ -246,7 +247,7 @@ class HomeController extends StatelessWidget {
                               children: <Widget>[
                                 IconButton(
                                   icon: Icon(
-                                    Icons.share,
+                                    LineIcons.share,
                                     color: Color_Header,
                                     size: 20,
                                   ),
