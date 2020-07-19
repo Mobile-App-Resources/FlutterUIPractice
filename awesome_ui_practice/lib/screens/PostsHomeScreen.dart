@@ -286,7 +286,7 @@ class HomeController extends StatelessWidget {
                               children: <Widget>[
                                 IconButton(
                                   icon: Icon(
-                                    Icons.hearing,
+                                    LineIcons.heart_o,
                                     color: Color_Header,
                                     size: 20,
                                   ),
@@ -297,7 +297,7 @@ class HomeController extends StatelessWidget {
                                 SizedBox(width: 10,),
                                 IconButton(
                                   icon: Icon(
-                                    Icons.mode_comment,
+                                    LineIcons.comments,
                                     color: Color_Header,
                                     size: 20,
                                   ),
@@ -307,19 +307,19 @@ class HomeController extends StatelessWidget {
                                 Text('143', style: TextStyle(color:  Color_Header),),
                               ],
                             ),
-                            Row(
-                              children: <Widget>[
-                                IconButton(
-                                  icon: Icon(
-                                    Icons.supervisor_account,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                  onPressed: (){
-                                  },
-                                )
-                              ],
-                            )
+//                            Row(
+//                              children: <Widget>[
+//                                IconButton(
+//                                  icon: Icon(
+//                                    LineIcons.repeat,
+//                                    color: Color_Header,
+//                                    size: 20,
+//                                  ),
+//                                  onPressed: (){
+//                                  },
+//                                )
+//                              ],
+//                            )
                           ],
                         ),
                       ],
