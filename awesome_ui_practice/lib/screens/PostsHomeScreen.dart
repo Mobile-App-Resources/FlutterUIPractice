@@ -38,12 +38,22 @@ class HomeController extends StatelessWidget {
                     colors: [Color_Grad1 , Color_Grad2], // whitish to gray
                     tileMode: TileMode.repeated, // repeats the gradient over the canvas
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(2, 3), // changes position of shadow
+                    ),
+                  ],
+
                 ),
-                child: Icon(Icons.add),
+                child: Icon(Icons.add, color:  Colors.white,),
               ),
               height: 55,
               width: 55,
             ),
+
             Text("Your Story "),
           ],
         ));
@@ -68,6 +78,14 @@ class HomeController extends StatelessWidget {
                             image: NetworkImage(
                                 userstory['img'].toString()),
                             fit: BoxFit.cover),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.7),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(2, 3), // changes position of shadow
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -75,7 +93,7 @@ class HomeController extends StatelessWidget {
                   width: 55,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.blue, width: 3),
+                    border: Border.all(color: Color_Header, width: 3),
                   ),
                 ) : Container(
                   child: Padding(
@@ -89,6 +107,14 @@ class HomeController extends StatelessWidget {
                             image: NetworkImage(
                                 userstory['img'].toString()),
                             fit: BoxFit.cover),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.7),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(2, 3), // changes position of shadow
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -104,7 +130,15 @@ class HomeController extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.green,
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 3)),
+                        border: Border.all(color: Colors.white, width: 3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.7),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(2, 3), // changes position of shadow
+                        ),
+                      ],),
                   ),
                 ): SizedBox(height: 1,)
               ],
@@ -141,16 +175,127 @@ class HomeController extends StatelessWidget {
   }
 
 
+  Widget getListOfPosts() {
+    return Column(
+        children: List.generate(
+            userMessages.length,
+                (index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                height: 80,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    children: <Widget>[
+                      Stack(
+                        children: <Widget>[
+                          userMessages[index]['story'] ?Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          userMessages[index]['img'].toString()),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                            ),
+                            height: 55,
+                            width: 55,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border:
+                              Border.all(color: Colors.blue, width: 3),
+                            ),
+                          ): Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          userMessages[index]['img'].toString()),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                            ),
+                            height: 55,
+                            width: 55,
+                          ),
+                          userMessages[index]['online']? Positioned(
+                            top: 35,
+                            left: 40,
+                            child: Container(
+                              width: 15,
+                              height: 15,
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      color: Colors.white, width: 3)),
+                            ),
+                          ) : SizedBox(height: 1,)
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            userMessages[index]['name'].toString(),
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                userMessages[index]['message'].toString(),
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                userMessages[index]['created_at'].toString(),
+                                style: TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )));
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color_Primary,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           'Home Screen',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Color_Header,
+        elevation: 0.0,
+        backgroundColor: Colors.white,
         leading: getHeaderAvatar(),
         actions: <Widget>[
           IconButton(
@@ -163,6 +308,16 @@ class HomeController extends StatelessWidget {
       ),
 
       body: getRecentStoriesScroll(),
+//    body: Container(
+//      height: 80,
+//      child: Padding(
+//        padding: const EdgeInsets.all(10.0),
+//        child: Row(
+//          children: <Widget>[
+//          ],
+//        ),
+//      ),
+//    ),
     );
   }
 }
