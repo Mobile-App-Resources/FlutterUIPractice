@@ -16,5 +16,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-![Posts UI](https://github.com/mohan083/FlutterUIPractice/blob/master/awesome_ui_practice/socaiPost.gif)
-![FB MessangerClone UI](https://github.com/mohan083/FlutterUIPractice/blob/master/awesome_ui_practice/fbMessangerClone.gif)
+![Posts UI](https://github.com/mohan083/FlutterUIPractice/blob/master/awesome_ui_practice/socaiPost.gif) ![FB MessangerClone UI](https://github.com/mohan083/FlutterUIPractice/blob/master/awesome_ui_practice/fbMessangerClone.gif)
