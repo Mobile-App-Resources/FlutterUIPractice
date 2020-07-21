@@ -210,15 +210,8 @@ class HomeController extends StatelessWidget {
                   height: 420,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.white.withOpacity(1),
-                        spreadRadius: 5,
-                        blurRadius: 5,
-                        offset: Offset(3, 3), // changes position of shadow
-                      ),
-                    ],
                   ),
                   child: Column(
                     children: <Widget>[
@@ -227,9 +220,9 @@ class HomeController extends StatelessWidget {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Container(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Container(
                                   child: Container(
                                     height: 20,
                                     width: 20,
@@ -241,9 +234,9 @@ class HomeController extends StatelessWidget {
                                           fit: BoxFit.cover),
                                     ),
                                   ),
+                                  height: 35,
+                                  width: 35,
                                 ),
-                                height: 35,
-                                width: 35,
                               ),
                               SizedBox(width: 10),
                               Text(
@@ -347,14 +340,14 @@ class HomeController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color_GryBack,
       appBar: AppBar(
         title: Text(
-          'Home Screen',
-          style: TextStyle(color: Colors.black),
+          'Home',
+          style: TextStyle(color: Colors.black, fontFamily: 'title'),
         ),
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color_GryBack,
         leading: Icon(
           CupertinoIcons.photo_camera,
           size: 30,
@@ -376,7 +369,6 @@ class HomeController extends StatelessWidget {
 //          )
         ],
       ),
-
       body: SingleChildScrollView(
           child: Column(
         children: <Widget>[

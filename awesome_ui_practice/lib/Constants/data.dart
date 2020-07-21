@@ -214,8 +214,8 @@ List posts = [
     "avatar" : "https://images.unsplash.com/photo-1458696352784-ffe1f47c2edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "online" : false,
     "story" : false,
-    "post_title": "Mahabaleshwar is a hill station in India's forested Western Ghats range, south of Mumbai.",
-    "post_media" : "https://wallpaperaccess.com/full/320133.jpg",
+    "post_title": "First click on my new Canon",
+    "post_media" : "https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     "created_at" : "2:34 pm"
   },
   {
@@ -224,8 +224,8 @@ List posts = [
     "avatar" : "https://images.unsplash.com/photo-1458696352784-ffe1f47c2edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "online" : false,
     "story" : false,
-    "post_title": "Mahabaleshwar is a hill station in India's forested Western Ghats range, south of Mumbai.",
-    "post_media" : "https://wallpaperaccess.com/full/320133.jpg",
+    "post_title": "Ena Mina Dika ...",
+    "post_media" : "https://images.unsplash.com/photo-1527731149372-fae504a1185f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
     "created_at" : "2:34 pm"
   },
   {
@@ -234,8 +234,8 @@ List posts = [
     "avatar" : "https://images.unsplash.com/photo-1458696352784-ffe1f47c2edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "online" : false,
     "story" : false,
-    "post_title": "Mahabaleshwar is a hill station in India's forested Western Ghats range, south of Mumbai.",
-    "post_media" : "https://im.whatshot.in/img/2020/Mar/mahabaleshwar-hills-maharashtra-cropped-1584949695.jpg",
+    "post_title": "Nature is calling .....",
+    "post_media" : "https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3334&q=80",
     "created_at" : "2:34 pm"
   },
 
@@ -245,8 +245,8 @@ List posts = [
     "avatar" : "https://images.unsplash.com/photo-1458696352784-ffe1f47c2edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "online" : false,
     "story" : false,
-    "post_title": "Mahabaleshwar is a hill station in India's forested Western Ghats range, south of Mumbai.",
-    "post_media" : "https://wallpaperaccess.com/full/320133.jpg",
+    "post_title": "Peace of mind <3",
+    "post_media" : "https://images.unsplash.com/photo-1534279006878-88c603b2ce78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80",
     "created_at" : "2:34 pm"
   },
 
@@ -256,8 +256,8 @@ List posts = [
     "avatar" : "https://images.unsplash.com/photo-1458696352784-ffe1f47c2edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80",
     "online" : false,
     "story" : false,
-    "post_title": "Mahabaleshwar is a hill station in India's forested Western Ghats range, south of Mumbai.",
-    "post_media" : "https://wallpaperaccess.com/full/1222798.jpg",
+    "post_title": "Had a great evening ..",
+    "post_media" : "https://images.unsplash.com/photo-1521258754024-57f83e9dfdda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3334&q=80",
     "created_at" : "2:34 pm"
   },
 ];
