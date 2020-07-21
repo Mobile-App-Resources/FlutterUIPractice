@@ -17,4 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-[![Social media posts and stories](https://j.gifs.com/91wzEY.gif)](https://j.gifs.com/91wzEY.gif)
+[[Social media posts and stories](https://j.gifs.com/91wzEY.gif)](https://j.gifs.com/91wzEY.gif)
+
+
