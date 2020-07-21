@@ -16,3 +16,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
+![Check UI](https://github.com/mohan083/FlutterUIPractice/blob/master/awesome_ui_practice/socaiPost.gif)
